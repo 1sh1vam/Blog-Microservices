@@ -14,7 +14,7 @@ app.get('/posts/:id/comments', (req, res) => {
     res.send(commentsByPostId[id] || []);
 });
 
-app.post('/posts/:id/comments', (req, res) => {
+app.post('/posts/:id/comments', async (req, res) => {
     const postId = req.params.id;
     const { content } = req.body;
 
