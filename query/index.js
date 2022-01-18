@@ -10,7 +10,7 @@ app.get('/posts', (req, res) => {
 });
 
 app.post('/events', (req, res) => {
-
+    const { type, pos }
 });
 
 app.listen(4002, () => {
