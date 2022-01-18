@@ -1,6 +1,7 @@
 const express = require('express');
 const { randomBytes } = require('crypto');
 const cors = require('cors');
+const axios = require('axios');
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,8 @@ app.post('/posts/:id/comments', (req, res) => {
     comments.push({id, content});
 
     commentsByPostId[postId] = comments;
+
+    await axios.post('http://localhost:4005/events', { type: 'CommentCreated', data: { postId, id, content } })
 
     res.status(201).send(comments)
 });
