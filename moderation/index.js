@@ -6,6 +6,7 @@ app.use(express.json());
 
 app.post('/events', async (req, res) => {
     const { type, data } = req.body;
+    console.log('Received event ', type);
 
     if (type === 'CommentCreated') {
         const { id, postId, content } = data

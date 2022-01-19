@@ -13,6 +13,7 @@ app.get('/posts', (req, res) => {
 
 app.post('/events', (req, res) => {
     const { type, data } = req.body;
+    console.log('Received event ', type);
 
     if (type === 'PostCreated') {
         const { id } = data;
@@ -28,7 +29,9 @@ app.post('/events', (req, res) => {
     if (type === 'CommentUpdated') {
         const { postId, id, content, status } = data;
         const post = posts[postId];
-        post.comments.push({ id, content, status });
+        const comment = post.comments.find((data) => data.id === id);
+        comment.status = status;
+        comment.content = content;
     }
 });
 
