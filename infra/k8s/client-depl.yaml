@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: client
+  name: client-depl
 spec:
   replicas: 1
   selector:
-    matchLabel:
+    matchLabels:
       app: client
   template:
     metadata:
-      label:
+      labels:
         app: client
     spec:
       containers:
         - name: client
-          image: 05shivam/client
+          image: 05shivam/client:latest
 ---
 apiVersion: v1
 kind: Service
