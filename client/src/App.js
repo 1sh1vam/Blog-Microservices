@@ -8,7 +8,7 @@ export default function App() {
             <h1>Create Post</h1>
             <CreatePost />
             <hr />
-            <h1>Posts</h1>
+            <h1>Posts........</h1>
             <PostsList />
         </div>
     )
